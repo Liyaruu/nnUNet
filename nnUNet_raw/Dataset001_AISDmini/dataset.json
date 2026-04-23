@@ -6,7 +6,7 @@
         "background": 0,
         "acute_infarct": 1
     },
-    "numTraining": 5,
+    "numTraining": 345,
     "file_ending": ".nii.gz",
     "overwrite_image_reader_writer": "SimpleITKIO"
 }

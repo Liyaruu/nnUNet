@@ -231,7 +231,7 @@ class NiftiValidator:
 
 if __name__ == "__main__":
     # 使用示例
-    dataset_path = r"C:\Users\lenovo\Desktop\nnUNet\nnUNet_raw\Dataset001_AISDmini"  # 修改为你的路径
+    dataset_path = r"C:\Users\Administrator\Desktop\nnUNet\nnUNet_raw\Dataset001_AISDmini"  # 修改为你的路径
 
     validator = NiftiValidator(dataset_path)
-    results = validator.check_all_cases(limit=3)  # 先检查前3个，确认无误后再检查全部
+    results = validator.check_all_cases(limit=20)  # 先检查前3个，确认无误后再检查全部

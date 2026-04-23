@@ -99,15 +99,16 @@ def convert_single_mask(case_id, mask_base_dir, spacing_info, output_dir):
 def main():
     # ===== 用户配置区域 =====
     # 必须与 convert_dicom_to_nifti.py 中使用的一致
-    mask_base_dir = Path(r"C:\Users\lenovo\Desktop\ASID数据集\mask")  # AISD/mask 文件夹位置（
-    output_dir = Path(r"C:\Users\lenovo\Desktop\nnUNet\nnUNet_raw\Dataset001_AISDmini")  # 输出目录
+    base_dir = Path(r"C:\Users\Administrator\Desktop\AISD\mask")  # AISD/mask 文件夹位置（
+    output_dir = Path(r"C:\Users\Administrator\Desktop\nnUNet\nnUNet_raw\Dataset001_AISDmini")  # 输出目录
 
     # 读取之前生成的 spacing 信息
     spacing_info_path = output_dir / "spacing_info.json"
 
     # 指定要处理的病例 ID（必须与 CT 转换的列表一致）
-    case_ids = ["0091440", "0091519"]  # ← 必须与脚本 1 一致
-    # 或自动检测所有：case_ids = [d.name for d in base_dir.iterdir() if d.is_dir() and d.name.isdigit()]
+    #case_ids = ["0091440", "0091519"]  # ← 必须与脚本 1 一致
+    # 或自动检测所有：
+    case_ids = [d.name for d in base_dir.iterdir() if d.is_dir() and d.name.isdigit()]
 
     # =======================
 
@@ -122,14 +123,14 @@ def main():
         spacing_info = json.load(f)
 
     print(f"将处理 {len(case_ids)} 个病例的 Mask 标注")
-    print(f"Mask 目录: {mask_base_dir}")
+    print(f"Mask 目录: {base_dir}")
     print(f"输出目录: {output_dir / 'labelsTr'}")
     print("-" * 60)
 
     # 转换所有 mask
     success_count = 0
     for case_id in tqdm(case_ids, desc="转换进度"):
-        if convert_single_mask(case_id, mask_base_dir, spacing_info, output_dir):
+        if convert_single_mask(case_id, base_dir, spacing_info, output_dir):
             success_count += 1
 
     print("\n" + "=" * 60)
