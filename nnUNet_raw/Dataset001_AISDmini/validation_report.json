@@ -1,0 +1,227 @@
+{
+  "summary": {
+    "total": 5,
+    "passed": 5
+  },
+  "details": [
+    {
+      "case": "0091440.nii",
+      "passed": true,
+      "dtype": "16-bit signed integer",
+      "intensity_range": [
+        -1024.0,
+        1992.0
+      ],
+      "spacing": [
+        0.4375,
+        0.4375,
+        8.0
+      ],
+      "origin": [
+        -111.78125,
+        -329.78125,
+        14.65999984741211
+      ],
+      "size": [
+        512,
+        512,
+        15
+      ],
+      "label_values": [
+        0,
+        1
+      ],
+      "foreground_ratio": 0.0013567606608072917
+    },
+    {
+      "case": "0091465.nii",
+      "passed": true,
+      "dtype": "16-bit signed integer",
+      "intensity_range": [
+        -1024.0,
+        1880.0
+      ],
+      "spacing": [
+        0.466796875,
+        0.466796875,
+        9.262308120727539
+      ],
+      "origin": [
+        -119.2666015625,
+        -283.61822509765625,
+        -558.4118041992188
+      ],
+      "size": [
+        512,
+        512,
+        14
+      ],
+      "label_values": [
+        0,
+        1
+      ],
+      "foreground_ratio": 0.0008806501116071429
+    },
+    {
+      "case": "0091468.nii",
+      "passed": true,
+      "dtype": "16-bit signed integer",
+      "intensity_range": [
+        -1022.0,
+        2134.0
+      ],
+      "spacing": [
+        0.439453125,
+        0.439453125,
+        5.0
+      ],
+      "origin": [
+        -112.2802734375,
+        -321.2802734375,
+        -667.75
+      ],
+      "size": [
+        512,
+        512,
+        27
+      ],
+      "label_values": [
+        0,
+        1
+      ],
+      "foreground_ratio": 0.0010893079969618055
+    },
+    {
+      "case": "0091505.nii",
+      "passed": true,
+      "dtype": "16-bit signed integer",
+      "intensity_range": [
+        -1024.0,
+        2002.0
+      ],
+      "spacing": [
+        0.40234375,
+        0.40234375,
+        3.0
+      ],
+      "origin": [
+        -102.798828125,
+        -227.9591064453125,
+        278.9557189941406
+      ],
+      "size": [
+        512,
+        512,
+        47
+      ],
+      "label_values": [
+        0,
+        1
+      ],
+      "foreground_ratio": 0.0035206409210854386
+    },
+    {
+      "case": "0091519.nii",
+      "passed": true,
+      "dtype": "16-bit signed integer",
+      "intensity_range": [
+        -1024.0,
+        2125.0
+      ],
+      "spacing": [
+        0.41015625,
+        0.41015625,
+        8.0
+      ],
+      "origin": [
+        -104.794921875,
+        -247.294921875,
+        -349.0
+      ],
+      "size": [
+        512,
+        512,
+        48
+      ],
+      "label_values": [
+        0,
+        1
+      ],
+      "foreground_ratio": 0.0016805330912272136
+    }
+  ],
+  "logs": [
+    {
+      "level": "INFO",
+      "msg": "发现 5 个图像文件"
+    },
+    {
+      "level": "INFO",
+      "msg": "开始验证 5 个病例..."
+    },
+    {
+      "level": "INFO",
+      "msg": "0091440.nii: CT 强度范围正常 [-1024, 1992] HU"
+    },
+    {
+      "level": "INFO",
+      "msg": "0091440.nii: 物理属性完全匹配 (Spacing/Origin/Direction)"
+    },
+    {
+      "level": "INFO",
+      "msg": "0091440.nii: Label 值 [0 1]，前景占比 0.14%"
+    },
+    {
+      "level": "INFO",
+      "msg": "0091465.nii: CT 强度范围正常 [-1024, 1880] HU"
+    },
+    {
+      "level": "INFO",
+      "msg": "0091465.nii: 物理属性完全匹配 (Spacing/Origin/Direction)"
+    },
+    {
+      "level": "INFO",
+      "msg": "0091465.nii: Label 值 [0 1]，前景占比 0.09%"
+    },
+    {
+      "level": "INFO",
+      "msg": "0091468.nii: CT 强度范围正常 [-1022, 2134] HU"
+    },
+    {
+      "level": "INFO",
+      "msg": "0091468.nii: 物理属性完全匹配 (Spacing/Origin/Direction)"
+    },
+    {
+      "level": "INFO",
+      "msg": "0091468.nii: Label 值 [0 1]，前景占比 0.11%"
+    },
+    {
+      "level": "INFO",
+      "msg": "0091505.nii: CT 强度范围正常 [-1024, 2002] HU"
+    },
+    {
+      "level": "INFO",
+      "msg": "0091505.nii: 物理属性完全匹配 (Spacing/Origin/Direction)"
+    },
+    {
+      "level": "INFO",
+      "msg": "0091505.nii: Label 值 [0 1]，前景占比 0.35%"
+    },
+    {
+      "level": "INFO",
+      "msg": "0091519.nii: CT 强度范围正常 [-1024, 2125] HU"
+    },
+    {
+      "level": "INFO",
+      "msg": "0091519.nii: 物理属性完全匹配 (Spacing/Origin/Direction)"
+    },
+    {
+      "level": "INFO",
+      "msg": "0091519.nii: Label 值 [0 1]，前景占比 0.17%"
+    },
+    {
+      "level": "INFO",
+      "msg": "\n验证完成: 5/5 个通过"
+    }
+  ]
+}

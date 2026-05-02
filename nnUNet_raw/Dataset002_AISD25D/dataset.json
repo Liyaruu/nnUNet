@@ -1,0 +1,14 @@
+{
+    "channel_names": {
+        "0": "slice_minus_1",
+        "1": "slice_center",
+        "2": "slice_plus_1"
+    },
+    "labels": {
+        "background": 0,
+        "acute_infarct": 1
+    },
+    "numTraining": 5,
+    "file_ending": ".nii.gz",
+    "overwrite_image_reader_writer": "NibabelIOWithLogging"
+}
