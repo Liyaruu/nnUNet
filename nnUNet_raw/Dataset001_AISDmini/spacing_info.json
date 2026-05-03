@@ -1,0 +1,62 @@
+{
+  "0091440": {
+    "case_id": "0091440",
+    "spacing": [
+      0.4375,
+      0.4375,
+      8.0
+    ],
+    "origin": [
+      -111.78125,
+      -329.78125,
+      14.66
+    ],
+    "direction": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "size": [
+      512,
+      512,
+      15
+    ],
+    "output_path": "C:\\Users\\lenovo\\Desktop\\nnUNet\\nnUNet_raw\\Dataset001_AISDmini\\imagesTr\\0091440_0000.nii.gz"
+  },
+  "0091519": {
+    "case_id": "0091519",
+    "spacing": [
+      0.41015625,
+      0.41015625,
+      8.0
+    ],
+    "origin": [
+      -104.794921875,
+      -247.294921875,
+      -349.0
+    ],
+    "direction": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "size": [
+      512,
+      512,
+      48
+    ],
+    "output_path": "C:\\Users\\lenovo\\Desktop\\nnUNet\\nnUNet_raw\\Dataset001_AISDmini\\imagesTr\\0091519_0000.nii.gz"
+  }
+}

@@ -122,6 +122,8 @@ AGENTS.md
 nnUNet_raw/*/imagesTr/
 nnUNet_raw/*/labelsTr/
 nnUNet_raw/*/imagesTs/
+nnUNet_raw/*/labelsTs/
+nnUNet_preprocess/
 nnUNet_preprocessed/
 nnUNet_results/
 
