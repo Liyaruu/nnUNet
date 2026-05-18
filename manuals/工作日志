@@ -1,0 +1,40 @@
+2026/5/15
+目前模型现状：2D-UNet严重过拟合，2.5D-UNet没有测试
+解决方向：
+1、检查NCCT数据中病灶区的大小。
+文件名  背景(0)像素数  病灶(1)像素数  病灶占比(%)
+0091440.nii.gz   3926825      5335   0.1357
+0091465.nii.gz   3666784      3232   0.0881
+0091468.nii.gz   7070178      7710   0.1089
+0091505.nii.gz  12277391     43377   0.3521
+0091519.nii.gz  12561766     21146   0.1681
+2、对数据进行增强，目前仅做了0-100HU的数据限制。
+Gamma Augmentation (亮度增强)、Mirroring (镜像增强)、Gaussian Noise (高斯噪声)等。
+3、修改代码，让每个fold都跑够500轮：
+添加MSCSA模块，以及强制每个fold都跑够500轮。
+4、修改损失函数
+病灶占比才 0.17%左右,修改病灶和背景的损失函数权重。
+5、寻找防止过拟合的方法。
+（1）增加 Dropout
+（2）从手动的0-100HU改为自己写的BrainCTNormalization：
+修改nnUNet_raw文件中的dataset.json，
+{
+  "channel_names": {
+    "0": "CT_minus_1",
+    "1": "CT_center",
+    "2": "CT_plus_1"
+  },
+  "labels": {
+    "background": 0,
+    "infarct": 1
+  },
+  "numTraining": 100,
+  "file_ending": ".nii.gz",
+  "normalization_schemes": {
+    "0": "BrainCTNormalization",
+    "1": "BrainCTNormalization",
+    "2": "BrainCTNormalization"
+  }
+}
+（3）增加数据增强
+nnUNetPlans.json中的2D的patch_size改为320*320，batch_size改为8。

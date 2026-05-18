@@ -25,22 +25,16 @@ for f in os.listdir(os.path.join(old_dataset, "imagesTr")):
         img_itk = sitk.ReadImage(os.path.join(old_dataset, "imagesTr", f))
         img_npy = sitk.GetArrayFromImage(img_itk)  # (D, H, W)
 
-        # ================== 新增：脑窗裁剪 ==================
-        # 1. 裁剪：将 HU 值限制在 [0, 100] 区间
-        # 这会将所有颅骨 (>100) 统一变为 100，所有空气和水 (<0) 变为 0
-        img_npy = np.clip(img_npy, 0, 100)
-
-        # 2. (建议项) 线性归一化：将 [0, 100] 映射到 [0, 1]
-        # 虽然 nnU-Net 会做 Z-Score，但预先统一量程能让不同病例的对比度更一致
-        img_npy = (img_npy - 0) / 100.0
-        # ====================================================
+        # 只保留原始 float32，确保数值精度
+        img_npy = img_npy.astype(np.float32)
 
         # 生成 t-1, t, t+1
         ch0 = np.roll(img_npy, 1, axis=0)
-        ch0[0] = img_npy[0]
+        # 边界：用镜像填充代替复制填充，提供"伪邻居"而非"自己复制自己"
+        ch0[0] = img_npy[1]  # 原来是 img_npy[0]
         ch1 = img_npy
         ch2 = np.roll(img_npy, -1, axis=0)
-        ch2[-1] = img_npy[-1]
+        ch2[-1] = img_npy[-2]  # 原来是 img_npy[-1]
 
         # 保存为 _0000, _0001, _0002
         for i, data in enumerate([ch0, ch1, ch2]):
@@ -48,4 +42,4 @@ for f in os.listdir(os.path.join(old_dataset, "imagesTr")):
             out_img.CopyInformation(img_itk)
             out_name = f"{case_name}_{i:04d}.nii.gz"
             sitk.WriteImage(out_img, os.path.join(new_dataset, "imagesTr", out_name))
-        print(f"已完成 (含脑窗裁剪): {case_name}")
+        print(f"已完成 : {case_name}")
